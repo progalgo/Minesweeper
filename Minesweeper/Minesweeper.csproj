@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="img\flag.png" />
     <Content Include="img\num1.png" />
     <Content Include="img\num2.png" />
     <Content Include="img\num3.png" />

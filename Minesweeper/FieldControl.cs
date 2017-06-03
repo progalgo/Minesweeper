@@ -18,6 +18,7 @@ namespace Minesweeper
 
         Image[] nums = new Image[8];
         Image mine;
+        Image flag;
 
         public FieldControl()
         {
@@ -31,6 +32,7 @@ namespace Minesweeper
             }
 
             mine = (Image)mgr.GetObject("mine");
+            flag = (Image)mgr.GetObject("flag");
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -60,6 +62,8 @@ namespace Minesweeper
                     DrawCellCover(pe.Graphics, CellRectangle(row, column));
                     break;
                 case CellState.Marked:
+                    DrawCellCover(pe.Graphics, CellRectangle(row, column));
+                    DrawCellFlag(pe.Graphics, CellRectangle(row, column));
                     break;
                 case CellState.Uncovered:
                     if (field[row, column].Mine)
@@ -83,6 +87,12 @@ namespace Minesweeper
             rectangle.Size -= new Size(1, 1);
             graphics.DrawRectangle(new Pen(Color.Gray), rectangle);
             graphics.DrawImage(mine, rectangle);
+        }
+
+        private void DrawCellFlag(Graphics graphics, Rectangle rectangle)
+        {
+            rectangle.Size -= new Size(1, 1);
+            graphics.DrawImage(flag, rectangle);
         }
 
         Rectangle CellRectangle(int row, int column)
