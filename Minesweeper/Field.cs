@@ -77,5 +77,17 @@ namespace Minesweeper
             Debug.Assert(cells[row, column].State != CellState.Uncovered);
             cells[row, column].State = CellState.Uncovered;
         }
+
+        public void Mark(int row, int column)
+        {
+            Debug.Assert(cells[row, column].State != CellState.Uncovered);
+            cells[row, column].State = CellState.Marked;
+        }
+
+        public void Unmark(int row, int column)
+        {
+            Debug.Assert(cells[row, column].State != CellState.Uncovered);
+            cells[row, column].State = CellState.Untouched;
+        }
     }
 }

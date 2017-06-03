@@ -151,9 +151,11 @@ namespace Minesweeper
             switch (e.Action)
             {
                 case CellAction.Mark:
-                    throw new NotImplementedException();
+                    field.Mark(e.Row, e.Column);
+                    break;
                 case CellAction.Unmark:
-                    throw new NotImplementedException();
+                    field.Unmark(e.Row, e.Column);
+                    break;
                 case CellAction.Uncover:
                     field.Uncover(e.Row, e.Column);
                     break;
